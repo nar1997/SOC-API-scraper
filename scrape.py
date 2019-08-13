@@ -12,14 +12,27 @@ if __name__ == '__main__':
     pass
 
 def main():
-
-    URL = "https://sis.rutgers.edu/soc/subjects.json?semester=92016&campus=NB&level=U"
+   
+    URL = "https://sis.rutgers.edu/soc/subjects.json?semester=92016&campus=NB&level=U,G"
     r = requests.get(URL)
     data = r.json()
     
-   # print(data)
-    
+    subjectCode = []
+     
     for c in data: 
-        print(c['description'],c['code'])
+        subjectCode.append(c['code'])
+      #  print(c['description'],c['code'])
+       # print(c['code'])
+        
+   # for ok in range(len(subjectCode)):
+       # print (subjectCode[ok])
+        
+    
+        sub_url = ["https://sis.rutgers.edu/soc/courses.json?subject={}&semester=92016&campus=NB&level=U,G".format(n) for n in subjectCode]
+        
+    for killme in range (len(sub_url)):
+        print(sub_url[killme])
+        
+
 
 main()
