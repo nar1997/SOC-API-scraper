@@ -13,10 +13,13 @@ if __name__ == '__main__':
 
 def main():
 
-    URL = "https://sis.rutgers.edu/oldsoc/courses.json?subject=198&semester=92019&campus=NB&level=U,G"
+    URL = "https://sis.rutgers.edu/soc/subjects.json?semester=92016&campus=NB&level=U"
     r = requests.get(URL)
     data = r.json()
     
-    print(data)
+   # print(data)
+    
+    for c in data: 
+        print(c['description'],c['code'])
 
 main()
