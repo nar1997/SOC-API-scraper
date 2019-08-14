@@ -29,9 +29,15 @@ def main():
         
     
         sub_url = ["https://sis.rutgers.edu/soc/courses.json?subject={}&semester=92016&campus=NB&level=U,G".format(n) for n in subjectCode]
-        
+    
+    sub_list = []  
+    
     for killme in range (len(sub_url)):
-        print(sub_url[killme])
+        #print(sub_url[killme])
+       # courses = requests.get(sub_url[killme]).json()
+        sub_list.append((subjectCode[killme],sub_url[killme]))
+        print(sub_list[killme])
+        
         
 
 
